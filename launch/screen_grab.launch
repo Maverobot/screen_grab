@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<launch>
+
+  <arg name="update_rate" default="30" />
+
+  <node name="nodelet_manager" pkg="nodelet" type="nodelet" 
+      args="manager" output="screen" />
+
+  <node name="screen_grab" pkg="nodelet" type="nodelet"
+      args="load screen_grab/ScreenGrab nodelet_manager" output="screen" >
+    <param name="update_rate" value="$(arg update_rate)" />
+    <param name="x_offset" value="50" />
+    <param name="y_offset" value="50" />
+    <param name="width" value="1920" />
+    <param name="height" value="1080" />
+  </node>
+
+</launch>
